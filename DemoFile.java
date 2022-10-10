@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class DemoFile {
 	//method to write the content into the file
     static void writeTextFileContent(String fileURL){
-    	//adding the content of an array
+    	//writing the content of an array
     	String[] names= {"Nani","Raju","Komal"};
     //Using try catch block to handle the exception	
     	try{
@@ -26,6 +26,18 @@ public class DemoFile {
     		e.printStackTrace();
     	}
     }
+    //method to append the data to an existing file
+    static void appendContentToFile(String fileURL) {
+    	try {
+    		FileWriter fileWriterObject = new FileWriter(fileURL,true);
+    		BufferedWriter writer = new BufferedWriter(fileWriterObject);
+    		writer.write("\nRama is an elder brother of lakshman");
+    		  writer.close();
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}
+    	}
+
 	//method to read the content from the file
     static void readTextFileContent(String fileURL){
 		try {
@@ -49,6 +61,7 @@ public static void main(String[] args) {
 		System.out.println("Enter the path of the file : ");
 		String fileURL =filePath.next();
 		writeTextFileContent(fileURL);
+		appendContentToFile(fileURL);
 		readTextFileContent(fileURL);
 	}catch(Exception e) {
 		e.printStackTrace();
