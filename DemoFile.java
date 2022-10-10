@@ -1,6 +1,8 @@
 package bridgeLabz.FileReader;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.Scanner;
 
@@ -19,6 +21,21 @@ public class DemoFile {
     		e.printStackTrace();
     	}
     }
+	//method to read the content from the file
+    static void readTextFileContent(String fileURL){
+		try {
+	//Using FileReader and BufferedReader classes to write the content 		
+		FileReader fileReaderObject=new FileReader(fileURL);
+    	BufferedReader reader = new BufferedReader(fileReaderObject);
+    	String line;
+				while((line=reader.readLine()) != null) {
+					System.out.println(line);
+				}
+				 reader.close();
+	}  catch(Exception e) {
+		e.printStackTrace();
+	}
+	}
     //main method
 public static void main(String[] args) {
 	try {
@@ -27,6 +44,7 @@ public static void main(String[] args) {
 		System.out.println("Enter the path of the file : ");
 		String fileURL =filePath.next();
 		writeTextFileContent(fileURL);
+		readTextFileContent(fileURL);
 	}catch(Exception e) {
 		e.printStackTrace();
 	}
