@@ -9,6 +9,8 @@ import java.util.Scanner;
 public class DemoFile {
 	//method to write the content into the file
     static void writeTextFileContent(String fileURL){
+    	//adding the content of an array
+    	String[] names= {"Nani","Raju","Komal"};
     //Using try catch block to handle the exception	
     	try{
     //Using FileWriter and BufferedWriter classes to write the content 		
@@ -16,6 +18,9 @@ public class DemoFile {
     	BufferedWriter writer = new BufferedWriter(fileWriterObject);
     	  writer.write("Rama is a good boy");
     	  writer.write("\nLakshman is a good boy");
+    	  for(String name:names) {
+    		  writer.write("\n"+name);
+    	  }
     	  writer.close();
     	}  catch(Exception e) {
     		e.printStackTrace();
